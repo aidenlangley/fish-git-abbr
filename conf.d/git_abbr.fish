@@ -1,264 +1,308 @@
 set -g __git_abbr_version 0.3.1
 
-abbr g git
+function _git_add -d 'Configure git add abbreviations'
+    abbr -c git a add
+    abbr -c git aa 'add -v --all # add all files to the index'
+    abbr -c git apa 'add -v --patch # interactively add files to the index'
+    abbr -c git au 'add -v --update # update index if files exist'
+end
 
-abbr -c git a add
-abbr -c git aa 'add --all'
-abbr -c git apa 'add --patch'
-abbr -c git au 'add --update'
-abbr -c git av 'add --verbose'
+function _git_apply -d 'Configure git apply abbreviations'
+    abbr -c git ap apply
+    abbr -c git apt 'apply --3way'
+end
 
-abbr -c git ap apply
-abbr -c git apt 'apply --3way'
+function _git_branch -d 'Configure git branch abbreviations'
+    abbr -c git b branch
+    abbr -c git bD --set-cursor 'branch -D % # delete branch w/ force'
+    abbr -c git bD! --set-cursor 'branch -D -f % # delete branch w/ more force '
+    abbr -c git ba 'branch -a # list remote and local branches'
+    abbr -c git bd --set-cursor 'branch -d % # delete branch'
+    abbr -c git bnm 'branch --no-merged # only list branches that aren\'t reachable from HEAD'
+    abbr -c git br 'branch --remotes # interact with remote branches'
+    abbr -c git brD --set-cursor 'branch --remotes -D % # delete remote branch w/ force'
+    abbr -c git brD! --set-cursor 'branch -D -f % # delete remote branch w/ more force '
+    abbr -c git brd --set-cursor 'branch --remotes -d % # delete remote branch'
+    abbr -c git brv 'branch -l -vv # list remote branches w/ verbosity'
+    abbr -c git bv 'branch -l -vv # list branches w/ verbosity'
+end
 
-abbr -c git b branch
-abbr -c git bD 'branch -D'
-abbr -c git bDf 'branch -D -f'
-abbr -c git ba 'branch -a'
-abbr -c git bd 'branch -d'
-abbr -c git bdf 'branch -d -f'
-abbr -c git bnm 'branch --no-merged'
-abbr -c git br 'branch --remote'
+function _git_bisect -d 'Configure git bisect abbreviations'
+    abbr -c git bs --set-cursor 'bisect % # find bugs'
+    abbr -c git bsb 'bisect bad # current version is bad'
+    abbr -c git bsg --set-cursor 'bisect good % # this version is known to be good'
+    abbr -c git bsr 'bisect reset # clean up bisection state and return to original HEAD after bisecting'
+    abbr -c git bss 'bisect start # start looking for bugs via bisecting'
+end
 
-abbr -c git bl 'blame -b -w'
+function _git_commit -d 'Configure git commit abbreviations'
+    abbr -c git c 'commit -v'
+    abbr -c git c! 'commit -v --amend # commit + amend'
+    abbr -c git ca 'commit -a -v # commit + stage all'
+    abbr -c git ca! 'commit -a -v --amend # commit + stage all + amend'
+    abbr -c git cam --set-cursor "commit -a -m '%' # commit w/ message"
+    abbr -c git can! 'commit -a -v --no-edit --amend # commit + stage all + amend without changing commit message'
+    abbr -c git cans! 'commit -a -v -s --no-edit --amend # commit + stage all + amend without changing commit message + signoff the commit'
+    abbr -c git cas 'commit -a -s # commit + stage all + signoff the commit'
+    abbr -c git casm --set-cursor "commit -a -s -m '%' # commit /w message + stage all + signoff the commit"
+    abbr -c git ci 'commit --allow-empty -v -m\'chore: initial commit\' # blank initial commit'
+    abbr -c git cm --set-cursor "commit -m '%' # commit /w message"
+    abbr -c git cn 'commit -v --no-edit # include staged changes in previous commit'
+    abbr -c git cn! 'commit -v --amend --no-edit # include staged changes in previous commit + amend'
+    abbr -c git cs 'commit -S # GPG sign the commit'
+    abbr -c git csm --set-cursor "commit -s -m '%' # commit w/ message + sign off the commit"
+end
 
-abbr -c git bs bisect
-abbr -c git bsb 'bisect bad'
-abbr -c git bsg 'bisect good'
-abbr -c git bsr 'bisect reset'
-abbr -c git bss 'bisect start'
+function _git_clean -d 'Configure git clean abbreviations'
+    abbr -c git clean 'clean -d # recursively remove untracked files'
+    abbr -c git clean 'clean -di # interactively (and recursively) remove untracked files'
+    abbr -c git clean 'clean -i # interactively remove untracked files'
 
-abbr -c git c 'commit -v'
-abbr -c git c! 'commit -v --amend'
-abbr -c git ca 'commit -a -v'
-abbr -c git ca! 'commit -a -v --amend'
-abbr -c git cam --set-cursor "commit -a -m '%'"
-abbr -c git can! 'commit -a -v --no-edit --amend'
-abbr -c git cans! 'commit -a -v -s --no-edit --amend'
-abbr -c git cas 'commit -a -s'
-abbr -c git casm --set-cursor "commit -a -s -m '%'"
-abbr -c git ci 'commit --allow-empty -v -m\'chore: initial commit\''
-abbr -c git cm --set-cursor "commit -m '%'"
-abbr -c git cn 'commit -v --no-edit'
-abbr -c git cn! 'commit -v --amend --no-edit'
-abbr -c git cs 'commit -S'
-abbr -c git csm --set-cursor "commit -s -m '%'"
+end
 
-abbr -c git cf 'config --list'
+function _git_checkout -d 'Configure git checkout abbreviations'
+    abbr -c git co checkout
+    abbr -c git coB --set-cursor 'checkout -B % (git_current_branch) # copy current branch and reset it, then checkout'
+    abbr -c git cob --set-cursor 'checkout -b % (git_current_branch) # copy current branch then checkout'
+    abbr -c git cod 'checkout (git_develop_branch)'
+    abbr -c git cof --set-cursor 'checkout (git_feature_prepend)/%'
+    abbr -c git coh --set-cursor 'checkout hotfix/%'
+    abbr -c git com 'checkout (git_main_branch)'
+    abbr -c git cor --set-cursor 'checkout release/%'
+    abbr -c git cors 'checkout --recurse-submodules'
+    abbr -c git cos --set-cursor 'checkout support/%'
+end
 
-abbr -c git cl 'clone --recurse-submodules'
+function _git_shortlog -d 'Configure git shortlog abbreviations'
+    abbr -c git sh --set-cursor 'shortlog % # presentable summary'
+    abbr -c git count 'shortlog -sn # authors + commit count'
+end
 
-abbr -c git clean 'clean -id'
+function _git_cherrypick -d 'Configure git cherry-pick abbreviations'
+    abbr -c git cp --set-cursor 'cherry-pick % # apply changes from another commit to working tree'
+    abbr -c git cpa 'cherry-pick --abort'
+    abbr -c git cpc 'cherry-pick --continue'
+    abbr -c git cpe 'cherry-pick --edit # edit the cherry-picked commit'
+end
 
-abbr -c git co checkout
-abbr -c git coB --set-cursor 'checkout -B % (git_current_branch) # copy current branch and reset it, then checkout'
-abbr -c git cob --set-cursor 'checkout -b % (git_current_branch) # copy current branch then checkout'
-abbr -c git cod 'checkout (git_develop_branch)'
-abbr -c git cof 'checkout (git_feature_prepend)/'
-abbr -c git coh 'checkout hotfix/'
-abbr -c git com 'checkout (git_main_branch)'
-abbr -c git cor 'checkout release/'
-abbr -c git cors 'checkout --recurse-submodules'
-abbr -c git cos 'checkout support/'
+function _git_diff -d 'Configure git diff abbreviations'
+    abbr -c git d diff
+    abbr -c git dca 'diff --cached'
+    abbr -c git dct 'diff --staged'
+    abbr -c git dcw 'diff --cached --word-diff'
+    abbr -c git dt 'diff-tree --no-commit-id --name-only -r'
+    abbr -c git dup 'diff @{upstream}'
+end
 
-abbr -c git count 'shortlog -sn'
+function _git_fetch -d 'Configure git fetch abbreviations'
+    abbr -c git f fetch
+    abbr -c git fa 'fetch --all --prune'
+    abbr -c git fo 'fetch origin'
+end
 
-abbr -c git cp cherry-pick
-abbr -c git cpa 'cherry-pick --abort'
-abbr -c git cpc 'cherry-pick --continue'
+function _git_log -d 'Configure git log abbreviations'
+    abbr -c git l --set-cursor 'log % # commit log'
+    abbr -c git lg 'log --graph --decorate --all # logs (all) /w graph'
+    abbr -c git lgm --set-cursor 'log --graph --max-count=10% # logs w/ graph + limit'
+    abbr -c git lo 'log --oneline --decorate # logs w/ compact one liners'
+    abbr -c git log 'log --oneline --decorate --graph # logs w/ graph + compact one liners'
+    abbr -c git loga 'log --oneline --decorate --graph --all # logs (all) w/ graph + compact one liners'
+    abbr -c git ls 'log --stat # logs /w change stats'
+    abbr -c git lsp 'log --stat -p # logs /w stats + preview'
+end
 
-abbr -c git d diff
-abbr -c git dca 'diff --cached'
-abbr -c git dct 'diff --staged'
-abbr -c git dcw 'diff --cached --word-diff'
-abbr -c git dt 'diff-tree --no-commit-id --name-only -r'
-abbr -c git dup 'diff @{upstream}'
+function _git_merge -d 'Configure git merge abbreviations'
+    abbr -c git m merge
+    abbr -c git ma 'merge --abort # abort and rollback the merge'
+    abbr -c git mc 'merge --continue # continue after resolving a conflict'
+    abbr -c git mom 'merge origin/(git_main_branch) # merge main branch into current branch'
+    abbr -c git mum 'merge upstream/(git_main_branch) # merge main branch (upstream) into current branch'
 
-# abbr -c git dnolock 'diff ":(exclude)package-lock.json" ":(exclude)*.lock"'
-# abbr -c git dv 'diff -w $@ | view -'
+    abbr -c git mtl 'mergetool --no-prompt'
+    abbr -c git mtlvim 'mergetool --no-prompt --tool=vimdiff'
+end
 
-abbr -c git dct 'describe --tags (git rev-list --tags --max-count=1)'
+function _git_push -d 'Configure git push abbreviations'
+    abbr -c git p push
+    abbr -c git pd 'push --dry-run'
+    abbr -c git pf 'push --force-with-lease'
+    abbr -c git pf! 'push --force'
+    abbr -c git poat 'push origin --all && git push origin --tags'
+    abbr -c git poatf! 'push origin --all --force && git push origin --tags --force'
+    abbr -c git poatf! 'push origin --all --force-with-lease && git push origin --tags --force-with-lease'
+    abbr -c git psu 'push --set-upstream origin (git_current_branch)'
+    abbr -c git pt 'push --tags'
+    abbr -c git ptf 'push --tags --force-with-lease'
+    abbr -c git ptf! 'push --tags --force'
+    abbr -c git pv 'push -v'
+end
 
-abbr -c git f fetch
-abbr -c git fa 'fetch --all --prune'
-abbr -c git fo 'fetch origin'
+function _git_pull -d 'Configure git pull abbreviations'
+    abbr -c git pl pull
+    abbr -c git plo 'pull origin'
+    abbr -c git plom 'pull origin (git_main_branch)'
+    abbr -c git plu 'pull upstream'
+    abbr -c git plum 'pull upstream (git_main_branch)'
+end
 
-# gg
-# gga
-# ggf
-# ggfl
-# ggl
-# ggp
-# ggpnp
-# ggpull
-# ggpur
-# ggpush
-# ggsup
-# ggu
-# gpsup
+function _git_remote -d 'Configure git remote abbreviations'
+    abbr -c git r 'remote -v'
+    abbr -c git ra 'remote add'
+    abbr -c git rau 'remote add upstream'
+    abbr -c git rmv 'remote rename'
+    abbr -c git rrm 'remote remove'
+    abbr -c git rset 'remote set-url'
+    abbr -c git ru 'remote update'
+    abbr -c git rv 'remote -v'
+    abbr -c git rvv 'remote -vvv'
+end
 
-abbr -c git i init
+function _git_rebase -d 'Configure git rebase abbreviations'
+    abbr -c git rb rebase
+    abbr -c git rba 'rebase --abort'
+    abbr -c git rbc 'rebase --continue'
+    abbr -c git rbd 'rebase (git_develop_branch)'
+    abbr -c git rbi 'rebase -i'
+    abbr -c git rbo 'rebase --onto'
+    abbr -c git rbom 'rebase origin/(git_main_branch)'
+    abbr -c git rbs 'rebase --skip'
+end
 
-abbr -c git ignore 'update-index --assume-unchanged'
-abbr -c git ignored 'ls-files -v | grep "^[[:lower:]]"'
+function _git_reset -d 'Configure git reset and revert abbreviations'
+    abbr -c git rs reset
+    abbr -c git pristine 'reset --hard && git clean -dffx'
+    abbr -c git rs! 'reset --hard'
+    abbr -c git rs- 'reset --'
+    abbr -c git rsh 'reset HEAD^'
+    abbr -c git rsh! 'reset --hard HEAD^'
+    abbr -c git rsoh 'reset origin/(git_current_branch)'
+    abbr -c git rsoh! 'reset origin/(git_current_branch) --hard'
+    abbr -c git rss 'reset --soft'
+    abbr -c git rssh 'reset --soft HEAD^'
 
-abbr gk 'gitk --all --branches &!'
-abbr gke 'gitk  --all (git log -g --pretty=%h) &!'
+    abbr -c git undo 'reset HEAD^'
+    abbr -c git undos 'reset --soft HEAD^'
+    abbr -c git undo! 'reset --hard HEAD^'
 
-abbr -c git fg 'ls-files | grep'
+    abbr -c git rev revert
+end
 
-# gl: git log
-abbr -c git l log
-abbr -c git lg 'log --graph'
-abbr -c git lgda 'log --graph --decorate --all'
-abbr -c git lgm 'log --graph --max-count=10'
-abbr -c git lo 'log --oneline --decorate'
-abbr -c git log 'log --oneline --decorate --graph'
-abbr -c git loga 'log --oneline --decorate --graph --all'
-abbr -c git ls 'log --stat'
-abbr -c git lsp 'log --stat -p'
-# abbr -c git lol
-# abbr -c git lols
-# abbr -c git lod
-# abbr -c git lods
-# abbr -c git lola
+function _git_rm -d 'Configure git rm abbreviations'
+    abbr -c git rm rm
+    abbr -c git rmc 'rm --cached'
+end
 
-# gm: git merge
-abbr -c git m merge
-abbr -c git ma 'merge --abort'
-abbr -c git mom 'merge origin/(git_main_branch)'
-abbr -c git mum 'merge upstream/(git_main_branch)'
+function _git_restore -d 'Configure git restore abbreviations'
+    abbr -c git rst restore
+    abbr -c git rsts 'restore --source'
+    abbr -c git rstst 'restore --staged'
+end
 
-# gmtl: git mergetool
-abbr -c git mtl 'mergetool --no-prompt'
-abbr -c git mtlvim 'mergetool --no-prompt --tool=vimdiff'
+function _git_status -d 'Configure git status abbreviations'
+    abbr -c git s status
+    abbr -c git sb 'status -sb'
+    abbr -c git ss 'status -s'
+end
 
-# gp: git push
-abbr -c git p push
-abbr -c git pd 'push --dry-run'
-abbr -c git pf 'push --force-with-lease'
-abbr -c git pf! 'push --force'
-abbr -c git poat 'push origin --all && git push origin --tags'
-abbr -c git poatf! 'push origin --all --force && git push origin --tags --force'
-abbr -c git poatf! 'push origin --all --force-with-lease && git push origin --tags --force-with-lease'
-abbr -c git psu 'push --set-upstream origin (git_current_branch)'
-abbr -c git pt 'push --tags'
-abbr -c git ptf 'push --tags --force-with-lease'
-abbr -c git ptf! 'push --tags --force'
-abbr -c git pv 'push -v'
+function _git_show -d 'Configure git show abbreviations'
+    abbr -c git show show
+    abbr -c git showps 'show --pretty=short --show-signature'
+end
 
-# gpl: git pull
-abbr -c git pl pull
-abbr -c git plo 'pull origin'
-abbr -c git plom 'pull origin (git_main_branch)'
-abbr -c git plu 'pull upstream'
-abbr -c git plum 'pull upstream (git_main_branch)'
+function _git_stash -d 'Configure git stash abbreviations'
+    abbr -c git st stash
+    abbr -c git sta 'stash apply'
+    abbr -c git stall 'stash --all'
+    abbr -c git stc 'stash clear'
+    abbr -c git std 'stash drop'
+    abbr -c git stl 'stash list'
+    abbr -c git stshow 'stash show --text'
 
-# gr: git remote
-abbr -c git r 'remote -v'
-abbr -c git ra 'remote add'
-abbr -c git rau 'remote add upstream'
-abbr -c git rmv 'remote rename'
-abbr -c git rrm 'remote remove'
-abbr -c git rset 'remote set-url'
-abbr -c git ru 'remote update'
-abbr -c git rv 'remote -v'
-abbr -c git rvv 'remote -vvv'
+    abbr -a git_stash_pop -r 'stP|sto' -c git 'stash pop'
+    abbr -a git_stash_push -r 'stp|stu' -c git --set-cursor "stash push -m '%'"
+end
 
-# grb: git rebase
-abbr -c git rb rebase
-abbr -c git rba 'rebase --abort'
-abbr -c git rbc 'rebase --continue'
-abbr -c git rbd 'rebase (git_develop_branch)'
-abbr -c git rbi 'rebase -i'
-abbr -c git rbo 'rebase --onto'
-abbr -c git rbom 'rebase origin/(git_main_branch)'
-abbr -c git rbs 'rebase --skip'
+function _git_switch -d 'Configure git switch abbreviations'
+    abbr -c git sw switch
+    abbr -c git swc 'switch -c'
+    abbr -c git swd 'switch (git_develop_branch)'
+    abbr -c git swm 'switch (git_main_branch)'
+end
 
-# grev: git revert
-abbr -c git rev revert
+function _git_tag -d 'Configure git tag abbreviations'
+    abbr -c git t tag
+    abbr -c git ta 'tag -a'
+    abbr -c git tas 'tag -a -s'
+    abbr -c git ts 'tag -s'
+end
 
-# grs: git reset
-abbr -c git rs reset
-abbr -c git pristine 'reset --hard && git clean -dffx'
-abbr -c git rs! 'reset --hard'
-abbr -c git rs- 'reset --'
-abbr -c git rsh 'reset HEAD^'
-abbr -c git rsh! 'reset --hard HEAD^'
-abbr -c git rsoh 'reset origin/(git_current_branch)'
-abbr -c git rsoh! 'reset origin/(git_current_branch) --hard'
-abbr -c git rss 'reset --soft'
-abbr -c git rssh 'reset --soft HEAD^'
+function _git_worktree -d 'Configure git worktree abbreviations'
+    abbr -c git wt worktree
+    abbr -c git wta 'worktree add'
+    abbr -c git wtls 'worktree list'
+    abbr -c git wtmv 'worktree move'
+    abbr -c git wtrm 'worktree remove'
+end
 
-abbr -c git undo 'reset HEAD^'
-abbr -c git undos 'reset --soft HEAD^'
-abbr -c git undo! 'reset --hard HEAD^'
+function _git_am -d 'Configure git am abbreviations (mailbox patches)'
+    abbr -c git am am
+    abbr -c git ama 'am --abort'
+    abbr -c git amc 'am --continue'
+    abbr -c git ams 'am --skip'
+    abbr -c git amscp 'am --show-current-patch'
+end
 
-# grm: git rm
-abbr -c git rm rm
-abbr -c git rmc 'rm --cached'
+function _git_flags -d 'Configure modifiers like quiet and dry-run'
+    abbr -c git C --set-cursor -- --path=%
+    abbr -c git dr -- --dry-run
+    abbr -c git q -- --quiet
+end
 
-# grst: git restore
-abbr -c git rst restore
-abbr -c git rsts 'restore --source'
-abbr -c git rstst 'restore --staged'
+if status is-interactive
+    abbr g git
 
-# grt: git return
-abbr -c git rt 'cd (git rev-parse --show-toplevel || echo .)'
+    _git_add
+    _git_am
+    _git_apply
+    _git_bisect
+    _git_branch
+    _git_checkout
+    _git_cherrypick
+    _git_clean
+    _git_commit
+    _git_diff
+    _git_fetch
+    _git_flags
+    _git_log
+    _git_merge
+    _git_pull
+    _git_push
+    _git_rebase
+    _git_remote
+    _git_reset
+    _git_restore
+    _git_rm
+    _git_shortlog
+    _git_stash
+    _git_status
+    _git_switch
+    _git_tag
+    _git_worktree
 
-# gs: git status
-abbr -c git s status
-abbr -c git sb 'status -sb'
-abbr -c git ss 'status -s'
-
-# gshow: git show
-abbr -c git show show
-abbr -c git showps 'show --pretty=short --show-signature'
-
-# gst: git stash
-abbr -c git st stash
-abbr -c git sta 'stash apply'
-abbr -c git stall 'stash --all'
-abbr -c git stc 'stash clear'
-abbr -c git std 'stash drop'
-abbr -c git stl 'stash list'
-abbr -c git stshow 'stash show --text'
-
-abbr -a git_stash_pop -r 'stP|sto' -c git 'stash pop'
-abbr -a git_stash_push -r 'stp|stu' -c git --set-cursor "stash push -m '%'"
-
-# gsu: git submodule
-abbr -c git su 'submodule update'
-
-# gsw: git switch
-abbr -c git sw switch
-abbr -c git swc 'switch -c'
-abbr -c git swd 'switch (git_develop_branch)'
-abbr -c git swm 'switch (git_main_branch)'
-
-# gt: git tag
-abbr -c git t tag
-abbr -c git ta 'tag -a'
-abbr -c git tas 'tag -a -s'
-abbr -c git ts 'tag -s'
-# gtl
-
-# gwch: git whatchanged
-abbr -c git wch 'whatchanged -p --abbrev-commit --pretty=medium'
-
-# gwt: git worktree
-abbr -c git wt worktree
-abbr -c git wta 'worktree add'
-abbr -c git wtls 'worktree list'
-abbr -c git wtmv 'worktree move'
-abbr -c git wtrm 'worktree remove'
-
-# gam: git am
-abbr -c git am am
-abbr -c git ama 'am --abort'
-abbr -c git amc 'am --continue'
-abbr -c git ams 'am --skip'
-abbr -c git amscp 'am --show-current-patch'
+    abbr -c git bl 'blame -b -w'
+    abbr -c git cf 'config --list'
+    abbr -c git cl 'clone --recurse-submodules'
+    abbr -c git dct 'describe --tags (git rev-list --tags --max-count=1)'
+    abbr -c git fg 'ls-files | grep % # find files'
+    abbr -c git i init
+    abbr -c git ignore 'update-index --assume-unchanged'
+    abbr -c git ignored 'ls-files -v | grep "^[[:lower:]]"'
+    abbr gk 'gitk --all --branches &!'
+    abbr gke 'gitk  --all (git log -g --pretty=%h) &!'
+    abbr -c git rt 'cd (git rev-parse --show-toplevel || echo .)'
+    abbr -c git su 'submodule update'
+    abbr -c git wch 'whatchanged -p --abbrev-commit --pretty=medium'
+end
 
 function git_abbr_uninstall --on-event git_abbr_uninstall
     set -e __git_abbr_version
