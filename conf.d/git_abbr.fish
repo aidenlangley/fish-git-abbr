@@ -270,170 +270,175 @@ function git_abbr_uninstall --on-event git_abbr_uninstall
     functions -e git_feature_branch_prepend
 
     abbr -e g
-    abbr -e ga
-    abbr -e gaa
-    abbr -e gapa
-    abbr -e gau
-    abbr -e gav
-    abbr -e gap
-    abbr -e gapt
-    abbr -e gb
-    abbr -e gba
-    abbr -e gbd
-    abbr -e gbDf
-    abbr -e gbD
-    abbr -e gbDf
-    abbr -e gbnm
-    abbr -e gbr
-    abbr -e gbl
-    abbr -e gbs
-    abbr -e gbsb
-    abbr -e gbsg
-    abbr -e gbsr
-    abbr -e gbss
-    abbr -e gc
-    abbr -e gci
-    abbr -e gc!
-    abbr -e gcn
-    abbr -e gcn!
-    abbr -e gca
-    abbr -e gca!
-    abbr -e gcan!
-    abbr -e gcans!
-    abbr -e gcam
-    abbr -e gcas
-    abbr -e gcasm
-    abbr -e gcsm
-    abbr -e gcm
-    abbr -e gcs
-    abbr -e gcf
-    abbr -e gcl
-    abbr -e gclean
-    abbr -e gco
-    abbr -e gcob
-    abbr -e gcom
-    abbr -e gcod
-    abbr -e gcof
-    abbr -e gcoh
-    abbr -e gcor
-    abbr -e gcos
-    abbr -e gcors
-    abbr -e gcount
-    abbr -e gcp
-    abbr -e gcpa
-    abbr -e gcpc
-    abbr -e gd
-    abbr -e gdca
-    abbr -e gdcw
-    abbr -e gdct
-    abbr -e gdt
-    abbr -e gdup
-    abbr -e gdct
-    abbr -e gf
-    abbr -e gfa
-    abbr -e gfo
-    abbr -e ghh
-    abbr -e gi
-    abbr -e gignore
-    abbr -e gignored
-    abbr -e gk
-    abbr -e gke
-    abbr -e gfg
-    abbr -e gl
-    abbr -e gls
-    abbr -e glsp
-    abbr -e glg
-    abbr -e glgda
-    abbr -e glgm
-    abbr -e glo
-    abbr -e glog
-    abbr -e gloga
-    abbr -e gm
-    abbr -e gmom
-    abbr -e gmum
-    abbr -e gma
-    abbr -e gmtl
-    abbr -e gmtlvim
-    abbr -e gp
-    abbr -e gpd
-    abbr -e gpf
-    abbr -e gpf!
-    abbr -e gpt
-    abbr -e gptf
-    abbr -e gptf!
-    abbr -e gpoat
-    abbr -e gpoatf!
-    abbr -e gpoatf!
-    abbr -e gpv
-    abbr -e gpl
-    abbr -e gplo
-    abbr -e gplom
-    abbr -e gplu
-    abbr -e gplum
-    abbr -e gr
-    abbr -e gra
-    abbr -e grau
-    abbr -e grrm
-    abbr -e grmv
-    abbr -e grset
-    abbr -e gru
-    abbr -e grv
-    abbr -e grvv
-    abbr -e grb
-    abbr -e grba
-    abbr -e grbc
-    abbr -e grbd
-    abbr -e grbi
-    abbr -e grbom
-    abbr -e grbo
-    abbr -e grbs
-    abbr -e grev
-    abbr -e grs
-    abbr -e grs!
-    abbr -e grsh
-    abbr -e grsh!
-    abbr -e grsoh
-    abbr -e grsoh!
-    abbr -e gpristine
-    abbr -e grs-
-    abbr -e grm
-    abbr -e grmc
-    abbr -e grst
-    abbr -e grsts
-    abbr -e grstst
-    abbr -e grt
-    abbr -e gs
-    abbr -e gss
-    abbr -e gsb
-    abbr -e gshow
-    abbr -e gshowps
-    abbr -e gst
-    abbr -e gsta
-    abbr -e gstc
-    abbr -e gstd
-    abbr -e gstl
-    abbr -e gstp
-    abbr -e gstshow
-    abbr -e gstall
-    abbr -e gsts
-    abbr -e gsu
-    abbr -e gsw
-    abbr -e gswc
-    abbr -e gswm
-    abbr -e gswd
-    abbr -e gt
-    abbr -e gts
-    abbr -e gta
-    abbr -e gtas
-    abbr -e gwch
-    abbr -e gwt
-    abbr -e gwta
-    abbr -e gwtls
-    abbr -e gwtmv
-    abbr -e gwtrm
-    abbr -e gam
-    abbr -e gamc
-    abbr -e gams
-    abbr -e gama
-    abbr -e gamscp
+    abbr -c git -e a
+    abbr -c git -e aa
+    abbr -c git -e apa
+    abbr -c git -e au
+    abbr -c git -e av
+    abbr -c git -e ap
+    abbr -c git -e apt
+    abbr -c git -e b
+    abbr -c git -e ba
+    abbr -c git -e bd
+    abbr -c git -e bDf
+    abbr -c git -e bD
+    abbr -c git -e bDf
+    abbr -c git -e bnm
+    abbr -c git -e br
+    abbr -c git -e bl
+    abbr -c git -e bs
+    abbr -c git -e bsb
+    abbr -c git -e bsg
+    abbr -c git -e bsr
+    abbr -c git -e bss
+    abbr -c git -e c
+    abbr -c git -e ci
+    abbr -c git -e c!
+    abbr -c git -e cn
+    abbr -c git -e cn!
+    abbr -c git -e ca
+    abbr -c git -e ca!
+    abbr -c git -e can!
+    abbr -c git -e cans!
+    abbr -c git -e cam
+    abbr -c git -e cas
+    abbr -c git -e casm
+    abbr -c git -e csm
+    abbr -c git -e cm
+    abbr -c git -e cs
+    abbr -c git -e cf
+    abbr -c git -e cl
+    abbr -c git -e clean
+    abbr -c git -e co
+    abbr -c git -e cob
+    abbr -c git -e com
+    abbr -c git -e cod
+    abbr -c git -e cof
+    abbr -c git -e coh
+    abbr -c git -e cor
+    abbr -c git -e cos
+    abbr -c git -e cors
+    abbr -c git -e count
+    abbr -c git -e cp
+    abbr -c git -e cpa
+    abbr -c git -e cpc
+    abbr -c git -e d
+    abbr -c git -e dca
+    abbr -c git -e dcw
+    abbr -c git -e dct
+    abbr -c git -e dt
+    abbr -c git -e dup
+    abbr -c git -e dct
+    abbr -c git -e f
+    abbr -c git -e fa
+    abbr -c git -e fo
+    abbr -c git -e hh
+    abbr -c git -e i
+    abbr -c git -e ignore
+    abbr -c git -e ignored
+    abbr -c git -e k
+    abbr -c git -e ke
+    abbr -c git -e fg
+    abbr -c git -e l
+    abbr -c git -e ls
+    abbr -c git -e lsp
+    abbr -c git -e lg
+    abbr -c git -e lgda
+    abbr -c git -e lgm
+    abbr -c git -e lo
+    abbr -c git -e log
+    abbr -c git -e loga
+    abbr -c git -e m
+    abbr -c git -e mom
+    abbr -c git -e mum
+    abbr -c git -e ma
+    abbr -c git -e mtl
+    abbr -c git -e mtlvim
+    abbr -c git -e p
+    abbr -c git -e pd
+    abbr -c git -e pf
+    abbr -c git -e pf!
+    abbr -c git -e pt
+    abbr -c git -e ptf
+    abbr -c git -e ptf!
+    abbr -c git -e poat
+    abbr -c git -e poatf!
+    abbr -c git -e poatf!
+    abbr -c git -e pv
+    abbr -c git -e pl
+    abbr -c git -e plo
+    abbr -c git -e plom
+    abbr -c git -e plu
+    abbr -c git -e plum
+    abbr -c git -e r
+    abbr -c git -e ra
+    abbr -c git -e rau
+    abbr -c git -e rrm
+    abbr -c git -e rmv
+    abbr -c git -e rset
+    abbr -c git -e ru
+    abbr -c git -e rv
+    abbr -c git -e rvv
+    abbr -c git -e rb
+    abbr -c git -e rba
+    abbr -c git -e rbc
+    abbr -c git -e rbd
+    abbr -c git -e rbi
+    abbr -c git -e rbom
+    abbr -c git -e rbo
+    abbr -c git -e rbs
+    abbr -c git -e rev
+    abbr -c git -e rs
+    abbr -c git -e rs!
+    abbr -c git -e rsh
+    abbr -c git -e rsh!
+    abbr -c git -e rsoh
+    abbr -c git -e rsoh!
+    abbr -c git -e pristine
+    abbr -c git -e rs-
+    abbr -c git -e rm
+    abbr -c git -e rmc
+    abbr -c git -e rss
+    abbr -c git -e rssh
+    abbr -c git -e rst
+    abbr -c git -e rsts
+    abbr -c git -e rstst
+    abbr -c git -e rt
+    abbr -c git -e s
+    abbr -c git -e ss
+    abbr -c git -e sb
+    abbr -c git -e show
+    abbr -c git -e showps
+    abbr -c git -e st
+    abbr -c git -e sta
+    abbr -c git -e stc
+    abbr -c git -e std
+    abbr -c git -e stl
+    abbr -c git -e stp
+    abbr -c git -e stshow
+    abbr -c git -e stall
+    abbr -c git -e sts
+    abbr -c git -e su
+    abbr -c git -e sw
+    abbr -c git -e swc
+    abbr -c git -e swm
+    abbr -c git -e swd
+    abbr -c git -e t
+    abbr -c git -e ts
+    abbr -c git -e ta
+    abbr -c git -e tas
+    abbr -c git -e wch
+    abbr -c git -e wt
+    abbr -c git -e wta
+    abbr -c git -e wtls
+    abbr -c git -e wtmv
+    abbr -c git -e wtrm
+    abbr -c git -e am
+    abbr -c git -e amc
+    abbr -c git -e ams
+    abbr -c git -e ama
+    abbr -c git -e amscp
+    abbr -c git -e undo
+    abbr -c git -e undos
+    abbr -c git -e undo!
 end
