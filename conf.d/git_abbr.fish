@@ -50,7 +50,7 @@ abbr -c git cl 'clone --recurse-submodules'
 abbr -c git clean 'clean -id'
 
 abbr -c git co checkout
-abbr -c git cob 'checkout -b'
+abbr -c git cob --set-cursor 'checkout -b % (git_current_branch)'
 abbr -c git com 'checkout (git_main_branch)'
 abbr -c git cod 'checkout (git_develop_branch)'
 abbr -c git cof 'checkout (git_feature_prepend)/'
