@@ -218,10 +218,14 @@ abbr -c git sta 'stash apply'
 abbr -c git stc 'stash clear'
 abbr -c git std 'stash drop'
 abbr -c git stl 'stash list'
-abbr -c git stp 'stash pop'
 abbr -c git stshow 'stash show --text'
 abbr -c git stall 'stash --all'
-abbr -c git sts 'stash save'
+
+abbr -r p -c 'git stash' p 'stash push'
+# abbr -a git_stpush -r 'stp|stpu|stpush' -c git 'stash push'
+
+abbr -r P -c 'git stash' P 'stash pop'
+# abbr -a git_stpop -r 'stP|stpo|stpop' -c git 'stash pop'
 
 # gsu: git submodule
 abbr -c git su 'submodule update'
