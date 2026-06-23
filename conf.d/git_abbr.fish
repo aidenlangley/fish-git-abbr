@@ -36,11 +36,11 @@ abbr -c git ca 'commit -a -v'
 abbr -c git ca! 'commit -a -v --amend'
 abbr -c git can! 'commit -a -v --no-edit --amend'
 abbr -c git cans! 'commit -a -v -s --no-edit --amend'
-abbr -c git cam 'commit -a -m'
+abbr -c git cam --set-cursor "commit -a -m '%'"
 abbr -c git cas 'commit -a -s'
-abbr -c git casm 'commit -a -s -m'
-abbr -c git csm 'commit -s -m'
-abbr -c git cm 'commit -m'
+abbr -c git casm --set-cursor "commit -a -s -m '%'"
+abbr -c git csm --set-cursor "commit -s -m '%'"
+abbr -c git cm --set-cursor "commit -m '%'"
 abbr -c git cs 'commit -S'
 
 abbr -c git cf 'config --list'
