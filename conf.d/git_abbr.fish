@@ -1,4 +1,4 @@
-set -g __git_abbr_version 0.3.0
+set -g __git_abbr_version 0.3.1
 
 abbr g git
 
