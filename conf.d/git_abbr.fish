@@ -50,7 +50,8 @@ abbr -c git cl 'clone --recurse-submodules'
 abbr -c git clean 'clean -id'
 
 abbr -c git co checkout
-abbr -c git cob --set-cursor 'checkout -b % (git_current_branch)'
+abbr -c git cob --set-cursor 'checkout -b % (git_current_branch) # copy current branch then checkout'
+abbr -c git coB --set-cursor 'checkout -B % (git_current_branch) # copy current branch and reset it, then checkout'
 abbr -c git com 'checkout (git_main_branch)'
 abbr -c git cod 'checkout (git_develop_branch)'
 abbr -c git cof 'checkout (git_feature_prepend)/'
