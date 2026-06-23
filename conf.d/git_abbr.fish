@@ -177,13 +177,19 @@ abbr -c git rev revert
 
 # grs: git reset
 abbr -c git rs reset
+abbr -c git rss 'reset --soft'
 abbr -c git rs! 'reset --hard'
-abbr -c git rsh 'reset HEAD'
-abbr -c git rsh! 'reset HEAD --hard'
+abbr -c git rsh 'reset HEAD^'
+abbr -c git rssh 'reset --soft HEAD^'
+abbr -c git rsh! 'reset --hard HEAD^'
 abbr -c git rsoh 'reset origin/(git_current_branch)'
 abbr -c git rsoh! 'reset origin/(git_current_branch) --hard'
 abbr -c git pristine 'reset --hard && git clean -dffx'
 abbr -c git rs- 'reset --'
+
+abbr -c git undo 'reset HEAD^'
+abbr -c git undos 'reset --soft HEAD^'
+abbr -c git undo! 'reset --hard HEAD^'
 
 # grm: git rm
 abbr -c git rm rm
