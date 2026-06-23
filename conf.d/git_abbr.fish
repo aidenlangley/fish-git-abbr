@@ -94,15 +94,14 @@ abbr -c git fo 'fetch origin'
 # ggu
 # gpsup
 
-abbr -c git hh help
-
 abbr -c git i init
 
 abbr -c git ignore 'update-index --assume-unchanged'
 abbr -c git ignored 'ls-files -v | grep "^[[:lower:]]"'
 
-abbr -c git k 'gitk --all --branches &!'
-abbr -c git ke 'gitk --all (git log -g --pretty=%h) &!'
+abbr gk gitk
+abbr -c gitk b '--all --branches &!'
+abbr -c gitk e '--all (git log -g --pretty=%h) &!'
 
 abbr -c git fg 'ls-files | grep'
 
